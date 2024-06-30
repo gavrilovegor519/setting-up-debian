@@ -29,7 +29,7 @@ sudo apt purge gnome-games gnome-remote-desktop transmission-gtk
 sudo apt autoremove --purge
 
 # Дать пользователю права на просмотр логов
-sudo sudo usermod -a -G systemd-journal $USER
+sudo usermod -a -G systemd-journal $USER
 
 # Установить шрифты
 sudo apt install ttf-mscorefonts-installer
@@ -164,7 +164,7 @@ sudo snap install postman
 
 #### Java (разработка)
 
-Сначала ставим через DNF:
+Сначала ставим через APT:
 
 ```shell
 sudo apt install openjdk-17-jdk
