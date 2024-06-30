@@ -51,6 +51,18 @@ sudo mokutil --reset
 sudo apt install neofetch
 ```
 
+### WireGuard
+
+```shell
+sudo -i
+cd /etc/wireguard/
+umask 077; wg genkey | tee privatekey | wg pubkey > publickey
+# Создаём конфиг. В данном случае - nano wg0.conf
+systemctl start wg-quick@wg0
+systemctl enable wg-quick@wg0
+ip a show wg0
+```
+
 ### Snap
 
 ```shell
