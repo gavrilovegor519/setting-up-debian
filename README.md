@@ -151,15 +151,24 @@ sudo systemctl enable containerd.service
 
 #### VirtualBox
 
+Сначала ставим VBox по данному гайду: <https://www.virtualbox.org/wiki/Linux_Downloads>
+
+Потом (если включён Secure Boot):
+
 ```shell
-sudo apt install curl wget gnupg2 lsb-release
-curl -fsSL https://www.virtualbox.org/download/oracle_vbox_2016.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/vbox.gpg
-echo "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
-sudo apt update
-sudo apt install linux-headers-$(uname -r) dkms
-sudo apt install virtualbox-7.0
-sudo usermod -aG vboxusers user
+sudo mkdir -p /var/lib/shim-signed/mok
+sudo openssl req -nodes -new -x509 -newkey rsa:2048 -outform DER -addext "extendedKeyUsage=codeSigning" -keyout /var/lib/shim-signed/mok/MOK.priv -out /var/lib/shim-signed/mok/MOK.der
+sudo mokutil --import /var/lib/shim-signed/mok/MOK.der
 ```
+
+Дальше ребутимся, потом:
+
+```shell
+sudo rcvboxdrv setup
+sudo usermod -aG vboxusers $USER
+```
+
+И опять ребут.
 
 ### Разработка
 
