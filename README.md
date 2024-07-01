@@ -25,8 +25,12 @@ sudo systemctl restart systemd-journald.service
 
 ```shell
 # Удаляем ненужное ПО
-sudo apt purge gnome-games gnome-remote-desktop transmission-gtk
+sudo apt purge gnome-games gnome-remote-desktop transmission-gtk zutty
 sudo apt autoremove --purge
+
+# Настроить zram
+sudo apt install systemd-zram-generator
+sudo systemctl daemon-reload
 
 # Дать пользователю права на просмотр логов
 sudo usermod -a -G systemd-journal $USER
