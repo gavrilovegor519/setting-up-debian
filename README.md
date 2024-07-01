@@ -97,6 +97,12 @@ fc-cache -r -v
 sudo apt install unrar
 ```
 
+### plocate
+
+```shell
+sudo apt install plocate
+```
+
 ### Создание видео
 
 #### OBS Studio
