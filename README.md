@@ -32,6 +32,9 @@ sudo apt autoremove --purge
 sudo apt install systemd-zram-generator
 sudo systemctl daemon-reload
 
+# Настраиваем systemd-oomd
+sudo apt install systemd-oomd
+
 # Дать пользователю права на просмотр логов
 sudo usermod -a -G systemd-journal $USER
 
