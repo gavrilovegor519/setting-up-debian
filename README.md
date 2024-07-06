@@ -166,16 +166,14 @@ sudo usermod -aG docker $USER
 sudo mkdir -p /var/lib/shim-signed/mok
 sudo openssl req -nodes -new -x509 -newkey rsa:2048 -outform DER -addext "extendedKeyUsage=codeSigning" -keyout /var/lib/shim-signed/mok/MOK.priv -out /var/lib/shim-signed/mok/MOK.der
 sudo mokutil --import /var/lib/shim-signed/mok/MOK.der
+sudo usermod -aG vboxusers $USER
 ```
 
 Дальше ребутимся, потом:
 
 ```shell
 sudo rcvboxdrv setup
-sudo usermod -aG vboxusers $USER
 ```
-
-И опять ребут.
 
 ### Разработка
 
