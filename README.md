@@ -4,43 +4,11 @@
 
 ### Лимитирование объёма журнала systemd-journald
 
-```shell
-sudo nano /etc/systemd/journald.conf
-```
-
-В файле `journald.conf` прописываем:
-
-```text
-[Journal]
-SystemMaxUse=50M
-```
-
-А дальше перезагружаем systemd-journald:
-
-```shell
-sudo systemctl restart systemd-journald.service
-```
+Используйте скрипт `journald-limit.sh` в папке `scripts`.
 
 ### Нужные пакеты
 
-```shell
-# Удаляем ненужное ПО
-sudo apt purge gnome-games gnome-remote-desktop transmission-gtk zutty
-sudo apt autoremove --purge
-
-# Настроить zram
-sudo apt install systemd-zram-generator
-sudo systemctl daemon-reload
-
-# Настраиваем systemd-oomd
-sudo apt install systemd-oomd
-
-# Дать пользователю права на просмотр логов
-sudo usermod -a -G systemd-journal $USER
-
-# Установить шрифты
-sudo apt install ttf-mscorefonts-installer
-```
+Используйте скрипт `base-setup.sh` в папке `scripts`.
 
 Также можно установить расширения для GNOME: `Blur my Shell`, `Appindicator` (<https://extensions.gnome.org/>).
 
@@ -51,12 +19,6 @@ sudo mokutil --reset
 ```
 
 ## Менее необходимые программы
-
-### neofetch
-
-```shell
-sudo apt install neofetch
-```
 
 ### WireGuard
 
@@ -84,21 +46,11 @@ sudo snap install hello-world
 hello-world
 ```
 
-### Google Chrome
-
-<https://www.google.com/intl/ru_ru/chrome/>
-
 ### VLC
 
 ```shell
 sudo snap install vlc
 fc-cache -r -v
-```
-
-### RAR
-
-```shell
-sudo apt install unrar
 ```
 
 ### plocate
@@ -137,8 +89,6 @@ flatpak install flathub com.obsproject.Studio
 
 #### Docker
 
-**Docker Hub разблокирован в России 3 июня 2024**
-
 ```shell
 sudo apt-get update
 sudo apt-get install ca-certificates curl
@@ -158,7 +108,11 @@ sudo usermod -aG docker $USER
 
 #### VirtualBox
 
-Сначала ставим VBox по данному гайду: <https://www.virtualbox.org/wiki/Linux_Downloads>
+Сначала ставим DKMS:
+
+```shell
+sudo apt install dkms
+```
 
 Потом (если включён Secure Boot):
 
@@ -169,11 +123,9 @@ sudo mokutil --import /var/lib/shim-signed/mok/MOK.der
 sudo usermod -aG vboxusers $USER
 ```
 
-Дальше ребутимся, потом:
+И ребутимся.
 
-```shell
-sudo rcvboxdrv setup
-```
+Потом ставим VBox по данному гайду: <https://www.virtualbox.org/wiki/Linux_Downloads>
 
 ### Разработка
 
