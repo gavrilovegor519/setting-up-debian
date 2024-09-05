@@ -6,6 +6,12 @@
 
 Используйте скрипт `journald-limit.sh` в папке `scripts`.
 
+Разрешить юзеру доступ к journald:
+
+```shell
+sudo usermod -aG systemd-journal $USER
+```
+
 ### Нужные пакеты
 
 Используйте скрипт `base-setup.sh` в папке `scripts`.
@@ -19,6 +25,14 @@ sudo mokutil --reset
 ```
 
 ## Менее необходимые программы
+
+### Flatpak
+
+```shell
+sudo apt install flatpak
+sudo apt install gnome-software-plugin-flatpak
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+```
 
 ### WireGuard
 
@@ -69,21 +83,29 @@ flatpak install flathub com.obsproject.Studio
 
 #### Kdenlive
 
-<https://kdenlive.org/en/download/>
+```shell
+flatpak install flathub org.kde.kdenlive
+```
 
 #### Audacity
 
-<https://www.audacityteam.org/download/>
+```shell
+flatpak install flathub org.audacityteam.Audacity
+```
 
 ### Мессенджеры
 
 #### Telegram
 
-<https://desktop.telegram.org/>
+```shell
+flatpak install flathub org.telegram.desktop
+```
 
 #### Discord
 
-<https://discord.com/download>
+```shell
+flatpak install flathub com.discordapp.Discord
+```
 
 ### Виртуализация
 
@@ -132,6 +154,7 @@ sudo usermod -aG vboxusers $USER
 #### Настройка Git
 
 ```shell
+sudo apt install git
 # здесь вписать ваше имя и фамилию
 git config --global user.name "Egor Gavrilov"
 # здесь вписать ваш E-Mail
@@ -214,19 +237,23 @@ ln -s /opt/lampp/htdocs/ ~/htdocs
 
 #### MongoDB Compass
 
-<https://www.mongodb.com/try/download/compass>
+```shell
+flatpak install flathub com.mongodb.Compass
+```
 
 ### Загрузка файлов
 
 #### Uget
 
 ```shell
-sudo apt install uget
+flatpak install flathub com.ugetdm.uGet
 ```
 
 #### Transmission
 
-<https://transmissionbt.com/download>
+```shell
+flatpak install flathub com.transmissionbt.Transmission
+```
 
 ### Flatseal
 
