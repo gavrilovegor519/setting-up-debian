@@ -237,9 +237,7 @@ ln -s /opt/lampp/htdocs/ ~/htdocs
 
 #### MongoDB Compass
 
-```shell
-flatpak install flathub com.mongodb.Compass
-```
+<https://www.mongodb.com/try/download/compass>
 
 ### Загрузка файлов
 
