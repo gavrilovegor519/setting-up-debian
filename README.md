@@ -34,6 +34,12 @@ sudo apt install gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ```
 
+### KeepassXC
+
+```shell
+flatpak install flathub org.keepassxc.KeePassXC
+```
+
 ### WireGuard
 
 ```shell
@@ -165,6 +171,12 @@ git config --global user.email gavrilovegor519@gmail.com
 
 ```shell
 sudo snap install postman
+```
+
+#### DBeaver
+
+```shell
+flatpak install flathub io.dbeaver.DBeaverCommunity
 ```
 
 #### Intellij IDEA
