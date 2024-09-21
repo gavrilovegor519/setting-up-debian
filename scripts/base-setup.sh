@@ -1,4 +1,10 @@
-#!/bin/sh
+#!/bin/bash -eu
+
+if [ "$(id -u)" -ne 0 ]; then
+        echo 'This script must be run by root' >&2
+        exit 1
+fi
+
 apt purge -y gnome-games gnome-remote-desktop transmission-gtk zutty
 apt autoremove --purge -y
 apt install -y systemd-zram-generator
