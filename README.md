@@ -26,12 +26,6 @@ sudo mokutil --reset
 
 ## Менее необходимые программы
 
-### KeepassXC
-
-```shell
-flatpak install flathub org.keepassxc.KeePassXC
-```
-
 ### WireGuard
 
 ```shell
@@ -65,12 +59,6 @@ sudo snap install vlc
 fc-cache -r -v
 ```
 
-### plocate
-
-```shell
-sudo apt install plocate
-```
-
 ### Создание видео
 
 #### OBS Studio
@@ -89,6 +77,12 @@ flatpak install flathub org.kde.kdenlive
 
 ```shell
 flatpak install flathub org.audacityteam.Audacity
+```
+
+### KeepassXC
+
+```shell
+flatpak install flathub org.keepassxc.KeePassXC
 ```
 
 ### Мессенджеры
@@ -140,12 +134,21 @@ sudo apt install dkms
 sudo mkdir -p /var/lib/shim-signed/mok
 sudo openssl req -nodes -new -x509 -newkey rsa:2048 -outform DER -addext "extendedKeyUsage=codeSigning" -keyout /var/lib/shim-signed/mok/MOK.priv -out /var/lib/shim-signed/mok/MOK.der
 sudo mokutil --import /var/lib/shim-signed/mok/MOK.der
-sudo usermod -aG vboxusers $USER
 ```
+
+Дальше читаем это: <https://github.com/dell/dkms?tab=readme-ov-file#module-signing>
 
 И ребутимся.
 
 Потом ставим VBox по данному гайду: <https://www.virtualbox.org/wiki/Linux_Downloads>
+
+И после установки вызываем эту команду:
+
+```shell
+sudo usermod -aG vboxusers $USER
+```
+
+И ребутимся опять.
 
 ### Разработка
 
