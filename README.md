@@ -39,24 +39,10 @@ systemctl enable wg-quick@wg0
 ip a show wg0
 ```
 
-### Snap
-
-```shell
-sudo apt install snapd
-sudo snap install core
-
-# 2 раза вводим команду
-sudo snap install hello-world
-
-# Проверяем
-hello-world
-```
-
 ### VLC
 
 ```shell
-sudo snap install vlc
-fc-cache -r -v
+flatpak install flathub org.videolan.VLC
 ```
 
 ### Создание видео
@@ -165,7 +151,12 @@ git config --global user.email gavrilovegor519@gmail.com
 #### Postman
 
 ```shell
-sudo snap install postman
+flatpak install flathub com.getpostman.Postman
+
+# фиксим проблему с запуском программы
+mkdir -p ~/.var/app/com.getpostman.Postman/config/Postman/proxy
+cd ~/.var/app/com.getpostman.Postman/config/Postman/proxy
+openssl req -subj '/C=US/CN=Postman Proxy' -new -newkey rsa:2048 -sha256 -days 365 -nodes -x509 -keyout postman-proxy-ca.key -out postman-proxy-ca.crt
 ```
 
 #### DBeaver
@@ -198,13 +189,11 @@ sudo apt install openjdk-11-jdk
 sudo apt install openjdk-8-jdk
 ```
 
-Eclipse/Intellij IDEA/VS Code/NetBeans - официальный сайт разработчика.
-
 #### VS Code
 
 <https://code.visualstudio.com/docs/setup/linux>
 
-Лучше всего его ставить в формате DEB, а не в Snap.
+Лучше всего его ставить в формате DEB, а не в Snap/Flatpak.
 
 ##### XAMPP (если вам не хочется Docker'а)
 
@@ -244,7 +233,9 @@ ln -s /opt/lampp/htdocs/ ~/htdocs
 
 #### MongoDB Compass
 
-<https://www.mongodb.com/try/download/compass>
+```shell
+flatpak install flathub com.mongodb.Compass
+```
 
 ### Загрузка файлов
 
