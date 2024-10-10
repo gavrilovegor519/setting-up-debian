@@ -18,12 +18,6 @@ sudo usermod -aG systemd-journal $USER
 
 Также можно установить расширения для GNOME: `Blur my Shell`, `Appindicator` (<https://extensions.gnome.org/>).
 
-### Chrome Flatpak
-
-```shell
-flatpak install flathub com.google.Chrome
-```
-
 ### Сброс MOK в UEFI
 
 ```shell
@@ -48,7 +42,7 @@ ip a show wg0
 ### VLC
 
 ```shell
-flatpak install flathub org.videolan.VLC
+sudo apt install vlc
 ```
 
 ### Создание видео
@@ -148,14 +142,7 @@ git config --global user.email gavrilovegor519@gmail.com
 
 #### Postman
 
-```shell
-flatpak install flathub com.getpostman.Postman
-
-# фиксим проблему с запуском программы
-mkdir -p ~/.var/app/com.getpostman.Postman/config/Postman/proxy
-cd ~/.var/app/com.getpostman.Postman/config/Postman/proxy
-openssl req -subj '/C=US/CN=Postman Proxy' -new -newkey rsa:2048 -sha256 -days 365 -nodes -x509 -keyout postman-proxy-ca.key -out postman-proxy-ca.crt
-```
+Используйте скрипт `install-postman.sh`.
 
 #### DBeaver
 
@@ -240,7 +227,7 @@ flatpak install flathub com.mongodb.Compass
 #### Uget
 
 ```shell
-flatpak install flathub com.ugetdm.uGet
+sudo apt install uget
 ```
 
 #### Transmission
