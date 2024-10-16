@@ -227,7 +227,7 @@ flatpak install flathub com.mongodb.Compass
 #### Uget
 
 ```shell
-sudo apt install uget
+flatpak install flathub com.ugetdm.uGet
 ```
 
 #### Transmission
