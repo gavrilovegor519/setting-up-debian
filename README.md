@@ -74,7 +74,7 @@ flatpak install flathub org.audacityteam.Audacity
 ### KeepassXC
 
 ```shell
-sudo apt install keepassxc
+flatpak install flathub org.keepassxc.KeePassXC
 ```
 
 ### Мессенджеры
