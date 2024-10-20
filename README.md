@@ -16,13 +16,7 @@ sudo usermod -aG systemd-journal $USER
 
 Используйте скрипт `base-setup.sh` в папке `scripts`.
 
-Также можно установить расширения для GNOME: `Blur my Shell`, `Appindicator` (<https://extensions.gnome.org/>).
-
-### Chrome Flatpak
-
-```shell
-flatpak install flathub com.google.Chrome
-```
+Также можно установить расширения для GNOME: <https://extensions.gnome.org/>.
 
 ### Сброс MOK в UEFI
 

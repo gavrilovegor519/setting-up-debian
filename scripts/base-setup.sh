@@ -14,8 +14,8 @@ apt install -y ttf-mscorefonts-installer
 apt install -y flatpak
 apt install -y gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-# apt install -y neofetch
-# wget -P /tmp https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-# apt install -y /tmp/google-chrome-stable_current_amd64.deb
-# rm /tmp/google-chrome-stable_current_amd64.deb
+apt install -y neofetch
+wget -P /tmp https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+apt install -y /tmp/google-chrome-stable_current_amd64.deb
+rm /tmp/google-chrome-stable_current_amd64.deb
 apt install -y unrar
